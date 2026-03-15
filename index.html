@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sadki Yassine | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;700;800&family=Great+Vibes&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #070015;
+      --bg-mid: #13072c;
+      --pink: #ff1f72;
+      --pink-soft: #ff4f93;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --body: #efeff2;
+      --heading-dark: #181742;
+      --accent-dark: #23204e;
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', 'Inter', 'Cairo', sans-serif;
+      background: var(--body);
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    body.rtl {
+      font-family: 'Cairo', 'Inter', sans-serif;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { text-decoration: none; }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 62% 32%, rgba(255, 25, 107, 0.48), transparent 20%),
+        radial-gradient(circle at 42% 12%, rgba(92, 38, 214, 0.35), transparent 18%),
+        radial-gradient(circle at 35% 60%, rgba(255, 0, 102, 0.18), transparent 25%),
+        linear-gradient(120deg, #090018 10%, #17052d 42%, #090015 82%);
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 44% 56% 58% 42% / 47% 30% 70% 53%;
+      filter: blur(6px);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 460px;
+      height: 780px;
+      background: linear-gradient(180deg, rgba(105, 56, 248, 0.12), rgba(255, 25, 107, 0.28));
+      top: -80px;
+      left: 27%;
+      transform: rotate(18deg);
+    }
+
+    .hero::after {
+      width: 420px;
+      height: 420px;
+      background: linear-gradient(180deg, rgba(255, 25, 107, 0.28), rgba(255, 25, 107, 0.05));
+      bottom: 70px;
+      left: 33%;
+      transform: rotate(40deg);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 34px 0 20px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 2.15rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span { color: var(--pink-soft); }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--pink-soft);
+    }
+
+    .lang-switch {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+      min-width: 160px;
+      backdrop-filter: blur(8px);
+    }
+
+    .lang-switch option {
+      color: #111;
+      background: #fff;
+    }
+
+    .menu-btn {
+      color: white;
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      min-height: calc(100vh - 96px);
+      gap: 20px;
+      padding: 30px 0 60px;
+    }
+
+    .eyebrow {
+      color: rgba(255,255,255,0.95);
+      font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .eyebrow .accent-name {
+      color: var(--pink-soft);
+      position: relative;
+      margin-inline-start: 8px;
+    }
+
+    .eyebrow .accent-name::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,31,114,0), rgba(255,31,114,1), rgba(255,31,114,0));
+      box-shadow: 0 0 14px rgba(255,31,114,0.9);
+    }
+
+    .hero-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      line-height: 0.9;
+      color: #ff4f93;
+      margin-bottom: 6px;
+      text-shadow: 0 0 18px rgba(255,31,114,0.38);
+    }
+
+    .hero h1 {
+      color: var(--text);
+      font-size: clamp(3.3rem, 6.8vw, 6.1rem);
+      line-height: 0.9;
+      font-weight: 800;
+      margin-bottom: 22px;
+      letter-spacing: -3px;
+      max-width: 720px;
+      text-wrap: balance;
+    }
+
+    .hero h1 .hero-accent-line {
+      display: block;
+      position: relative;
+    }
+
+    .hero h1 .hero-accent-line::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 72%;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ff2c7f, #ff67ab);
+      box-shadow: 0 0 20px rgba(255,31,114,0.9);
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: rgba(255,255,255,0.84);
+      font-size: 1.24rem;
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+
+    .hero-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero-services span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(10, 7, 28, 0.46);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.03);
+      font-weight: 700;
+      font-size: 0.98rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-services i {
+      color: var(--pink-soft);
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(90deg, #6f1bff 0%, #ff2c7f 55%, #ff67ab 100%);
+      border-radius: 999px;
+      padding: 18px 34px;
+      font-size: 1.12rem;
+      font-weight: 800;
+      min-width: 270px;
+      box-shadow: 0 14px 34px rgba(255,31,114,0.32), 0 0 0 3px rgba(255,255,255,0.04) inset;
+      transition: 0.25s ease;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(255,31,114,0.4);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 680px;
+    }
+
+    .visual-ring {
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 48% 44%, rgba(255, 88, 160, 0.12), rgba(255, 18, 114, 0.72) 68%);
+      border: 5px solid rgba(255, 39, 126, 0.85);
+      box-shadow: 0 0 60px rgba(255,31,114,0.25), 0 0 0 2px rgba(255,255,255,0.03) inset;
+      right: 12px;
+    }
+
+    .photo-wrap {
+      position: relative;
+      z-index: 2;
+      width: 560px;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      max-width: 520px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,0.38));
+    }
+
+    .hero-stats {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      background: rgba(11, 8, 28, 0.42);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 18px;
+      max-width: 860px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.2);
+    }
+
+    .stat-item {
+      text-align: center;
+      color: #fff;
+      padding: 10px 8px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-item:last-child { border-right: 0; }
+
+    .stat-item i {
+      display: block;
+      color: var(--pink-soft);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-item span {
+      display: block;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.35;
+    }
+
+    .about {
+      position: relative;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255, 31, 114, 0.08), transparent 22%),
+        radial-gradient(circle at 82% 24%, rgba(95, 46, 225, 0.08), transparent 24%),
+        linear-gradient(180deg, #f4f0f8 0%, #eceaf3 100%);
+      padding: 110px 0 100px;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.35), transparent 30%, transparent 70%, rgba(255,255,255,0.24));
+      pointer-events: none;
+    }
+
+    .about-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(320px, 0.88fr) minmax(380px, 1.12fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-card {
+      position: relative;
+      min-height: 620px;
+      border-radius: 34px;
+      padding: 34px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 66% 22%, rgba(255, 31, 114, 0.18), transparent 24%),
+        radial-gradient(circle at 24% 18%, rgba(92, 38, 214, 0.12), transparent 28%),
+        linear-gradient(145deg, #ffffff 0%, #f4f1f8 52%, #ece7f3 100%);
+      border: 1px solid rgba(255,255,255,0.95);
+      box-shadow: 0 28px 70px rgba(38, 26, 90, 0.12);
+      isolation: isolate;
+    }
+
+    .about-card::before {
+      content: "";
+      position: absolute;
+      width: 74%;
+      height: 74%;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 31, 114, 0.18), rgba(255, 31, 114, 0.02) 62%, transparent 72%);
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    .about-card::after {
+      content: "";
+      position: absolute;
+      inset: auto auto 0 0;
+      width: 100%;
+      height: 44%;
+      background: linear-gradient(180deg, transparent, rgba(16, 6, 34, 0.035));
+      pointer-events: none;
+    }
+
+    .about-card img {
+      width: 100%;
+      max-width: 460px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 46px rgba(14, 9, 30, 0.18));
+      transform: translateY(14px);
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #2b2a67;
+      text-transform: uppercase;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      margin-bottom: 22px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(83, 59, 155, 0.10);
+      box-shadow: 0 8px 24px rgba(58, 35, 118, 0.06);
+    }
+
+    .about h2 {
+      font-size: clamp(2.5rem, 4vw, 4.4rem);
+      color: #17154a;
+      line-height: 1.02;
+      margin-bottom: 14px;
+      letter-spacing: -0.045em;
+      max-width: 680px;
+    }
+
+    .about h3 {
+      color: #5a4dc3;
+      font-size: 1.24rem;
+      margin-bottom: 26px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .about p {
+      font-size: 1.12rem;
+      line-height: 1.9;
+      color: #53546a;
+      max-width: 640px;
+    }
+
+    .about-skill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .about-skill-row span {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,240,250,0.95));
+      border: 1px solid rgba(80, 54, 149, 0.10);
+      color: #2a255d;
+      font-size: 0.96rem;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(40, 27, 95, 0.06);
+    }
+
+    .contact-card {
+      margin-top: 34px;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 28px;
+      padding: 26px 28px;
+      box-shadow: 0 18px 44px rgba(24, 23, 66, 0.10);
+      backdrop-filter: blur(10px);
+      max-width: 470px;
+    }
+
+    .contact-title {
+      color: #17154a;
+      font-size: 1.18rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #44476a;
+      font-size: 1.02rem;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(63, 47, 125, 0.08);
+    }
+
+    .contact-line:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-line i {
+      width: 22px;
+      color: var(--pink);
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    a.contact-line {
+      color: #1f2458;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    a.contact-line:hover { color: var(--pink); }
+
+    .portfolio-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 31, 114, 0.08), transparent 24%),
+        radial-gradient(circle at 85% 15%, rgba(104, 76, 255, 0.1), transparent 24%),
+        linear-gradient(180deg, #f7f7fb 0%, #eef0f8 100%);
+      padding: 110px 0 120px;
+    }
+
+    .portfolio-section::before,
+    .portfolio-section::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(10px);
+    }
+
+    .portfolio-section::before {
+      width: 360px;
+      height: 360px;
+      background: rgba(255, 31, 114, 0.08);
+      top: -120px;
+      right: -80px;
+    }
+
+    .portfolio-section::after {
+      width: 260px;
+      height: 260px;
+      background: rgba(104, 76, 255, 0.08);
+      bottom: 20px;
+      left: -80px;
+    }
+
+    .portfolio-header {
+      margin-bottom: 44px;
+      max-width: 760px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .project-card {
+      position: relative;
+      background: rgba(255,255,255,0.82);
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: 0 20px 60px rgba(36, 27, 92, 0.10);
+      backdrop-filter: blur(12px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 80px rgba(36, 27, 92, 0.16);
+    }
+
+    .project-card.featured {
+      grid-column: span 7;
+      min-height: 560px;
+      background: linear-gradient(145deg, rgba(18, 2, 32, 0.98), rgba(40, 14, 84, 0.96) 56%, rgba(255, 31, 114, 0.9) 100%);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 28px 90px rgba(255, 31, 114, 0.18);
+    }
+
+    .project-card.secondary {
+      grid-column: span 5;
+      min-height: 560px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,247,252,0.96));
+    }
+
+    .project-shell {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card.featured .project-shell {
+      padding: 24px;
+    }
+
+    .project-card.secondary .project-shell {
+      padding: 24px;
+    }
+
+    .project-preview {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+    }
+
+    .project-card.featured .project-preview {
+      min-height: 300px;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.14), transparent 22%),
+        radial-gradient(circle at 80% 12%, rgba(255,255,255,0.12), transparent 22%),
+        linear-gradient(135deg, rgba(10, 5, 22, 0.85), rgba(43, 18, 84, 0.84) 55%, rgba(255, 31, 114, 0.72) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 22px;
+    }
+
+    .project-card.secondary .project-preview {
+      min-height: 260px;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255, 31, 114, 0.10), transparent 20%),
+        radial-gradient(circle at 80% 0%, rgba(80, 86, 255, 0.12), transparent 22%),
+        linear-gradient(160deg, #ffffff 0%, #f6f1ff 100%);
+      border: 1px solid rgba(41, 31, 95, 0.06);
+      margin-bottom: 22px;
+    }
+
+    .project-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .project-badge,
+    .project-year {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .project-card.featured .project-badge,
+    .project-card.featured .project-year {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .project-card.secondary .project-badge,
+    .project-card.secondary .project-year {
+      background: #fff;
+      color: #322d67;
+      border: 1px solid rgba(50,45,103,0.08);
+      box-shadow: 0 8px 18px rgba(36, 27, 92, 0.06);
+    }
+
+    .browser-mockup {
+      background: rgba(255,255,255,0.96);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(7,0,21,0.22);
+      transform: rotate(-2deg);
+      max-width: 100%;
+    }
+
+    .browser-top {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      background: #f6f3fb;
+      border-bottom: 1px solid rgba(33, 26, 75, 0.08);
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d9d4e7;
+    }
+
+    .browser-body {
+      aspect-ratio: 16 / 10;
+      background:
+        linear-gradient(140deg, rgba(18,2,32,0.95), rgba(55,15,107,0.88) 54%, rgba(255,31,114,0.85) 100%);
+      position: relative;
+      padding: 28px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .browser-body::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255,255,255,0.12), transparent 20%),
+        radial-gradient(circle at 85% 14%, rgba(255,255,255,0.12), transparent 18%);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .mock-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 78%;
+    }
+
+    .mock-label {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .mock-content h3 {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .mock-content p {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .mini-preview {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      border-radius: 22px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.98)),
+        #fff;
+      border: 1px solid rgba(41, 31, 95, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.5);
+    }
+
+    .mini-preview-top {
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-bottom: 1px solid rgba(41, 31, 95, 0.06);
+      background: rgba(255,255,255,0.8);
+    }
+
+    .mini-brand {
+      font-weight: 800;
+      color: #26214f;
+      letter-spacing: 0.4px;
+    }
+
+    .mini-pill {
+      width: 96px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255,31,114,0.24), rgba(99,92,255,0.22));
+    }
+
+    .mini-preview-body {
+      position: relative;
+      padding: 20px;
+      min-height: calc(100% - 54px);
+      background:
+        radial-gradient(circle at 86% 18%, rgba(255, 31, 114, 0.14), transparent 26%),
+        radial-gradient(circle at 18% 82%, rgba(111, 79, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, #fff8fb 0%, #f7f6ff 100%);
+    }
+
+    .mini-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 68%;
+    }
+
+    .mini-line {
+      height: 12px;
+      border-radius: 999px;
+      background: #e4e2f1;
+    }
+
+    .mini-line.long { width: 100%; }
+    .mini-line.mid { width: 76%; }
+    .mini-line.short { width: 46%; }
+
+    .mini-cards {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      flex: 1;
+      min-height: 86px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(41, 31, 95, 0.06);
+      box-shadow: 0 10px 24px rgba(36, 27, 92, 0.06);
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 4px;
+    }
+
+    .project-content h3 {
+      font-size: 1.8rem;
+      line-height: 1.05;
+      margin-bottom: 10px;
+    }
+
+    .project-card.secondary .project-content h3 {
+      color: #201b49;
+    }
+
+    .project-subtitle {
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 18px;
+      opacity: 0.9;
+    }
+
+    .project-card.secondary .project-subtitle {
+      color: #5f6180;
+      opacity: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .project-tags span {
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      padding: 9px 13px;
+    }
+
+    .project-card.featured .project-tags span {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .project-card.secondary .project-tags span {
+      background: #f2f3f9;
+      color: #353861;
+    }
+
+    .project-content p {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .project-card.featured .project-content p {
+      color: rgba(255,255,255,0.84);
+    }
+
+    .project-card.secondary .project-content p {
+      color: #565a78;
+    }
+
+    .project-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--pink);
+    }
+
+    .project-card.featured .project-link {
+      color: #fff;
+    }
+
+    .project-card.featured .project-link:hover {
+      color: #ffd7e8;
+    }
+
+    .project-card.secondary .project-link:hover {
+      color: #d81460;
+    }
+
+    .project-meta {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .project-card.secondary .project-meta {
+      color: #717593;
+    }
+
+    body.rtl .hero-content,
+    body.rtl .about-grid {
+      direction: rtl;
+    }
+
+    body.rtl .navbar,
+    body.rtl .nav-group {
+      direction: rtl;
+    }
+
+    body.rtl .hero-text,
+    body.rtl .about-content,
+    body.rtl .contact-card {
+      text-align: right;
+    }
+
+    body.rtl .hero-btn {
+      flex-direction: row-reverse;
+    }
+
+    body.rtl .nav-links a,
+    body.rtl .section-tag,
+    body.rtl .contact-title,
+    body.rtl .eyebrow {
+      letter-spacing: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-content,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding-top: 30px;
+      }
+
+      .hero-visual {
+        min-height: 460px;
+      }
+
+      .visual-ring {
+        width: min(78vw, 430px);
+        height: min(78vw, 430px);
+        right: auto;
+      }
+
+      .photo-wrap {
+        width: min(90vw, 430px);
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card.featured,
+      .project-card.secondary {
+        grid-column: span 1;
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 28px, 1180px); }
+
+      .navbar {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-group {
+        justify-content: center;
+      }
+
+      .nav-links {
+        gap: 18px;
+        justify-content: center;
+      }
+
+      .lang-switch {
+        min-width: 140px;
+      }
+
+      .menu-btn { display: none; }
+
+      .eyebrow {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 13vw, 4rem);
+        letter-spacing: -1px;
+      }
+
+      .hero-script {
+        font-size: 2.4rem;
+      }
+
+      .hero p {
+        font-size: 1.08rem;
+        line-height: 1.8;
+      }
+
+      .hero-services {
+        gap: 10px;
+      }
+
+      .hero-services span {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+
+      .stat-item:nth-child(2) { border-right: 0; }
+
+      .hero-btn {
+        font-size: 1rem;
+        padding: 15px 26px;
+      }
+
+      .about {
+        padding: 82px 0 70px;
+      }
+
+      .about-card {
+        min-height: 400px;
+      }
+
+      .about p {
+        font-size: 1.02rem;
+      }
+    }
+  
+    .spotify-card .project-preview {background: radial-gradient(circle at 30% 20%, rgba(28,255,140,.18), transparent 40%), linear-gradient(145deg, #06110c, #0b1f16 55%, #101515 100%);}
+    .spotify-card .project-badge {background: rgba(17, 211, 118, 0.14); border-color: rgba(17, 211, 118, 0.28);}
+    .spotify-card .mini-pill {background: linear-gradient(90deg, #1ed760, #0fd16b); box-shadow: 0 0 18px rgba(30,215,96,.55);}
+
+  </style>
+</head>
+<body>
+  <section class="hero" id="home">
+    <div class="container">
+      <header class="navbar">
+        <div class="logo"><span>S</span>ADKI</div>
+
+        <div class="nav-group">
+          <ul class="nav-links">
+            <li><a class="active" href="#home" data-i18n="navHome">HOME</a></li>
+            <li><a href="#about" data-i18n="navAbout">ABOUT</a></li>
+            <li><a href="#portfolio" data-i18n="navPortfolio">PORTFOLIO</a></li>
+            <li><a href="https://wa.me/21651815080" target="_blank" data-i18n="navContact">CONTACT</a></li>
+          </ul>
+
+          <select id="languageSwitcher" class="lang-switch" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="ar">العربية</option>
+            <option value="es">Español</option>
+            <option value="de">Deutsch</option>
+          </select>
+
+          <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+      </header>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="eyebrow"><span data-i18n="nameFirst">Sadki</span> <span class="accent-name" data-i18n="nameLast">Yassine</span></div>
+          <div class="hero-script" data-i18n="heroScript">I am</div>
+          <h1 data-i18n="heroTitle">Web<br><span class="hero-accent-line">Designer</span></h1>
+          <p data-i18n="heroDesc">
+            I create modern and premium websites with strong visual identity, clean UX, and polished details that make brands feel more memorable.
+          </p>
+          <div class="hero-services">
+            <span><i class="fa-solid fa-object-group"></i><span data-i18n="serviceOne">UI/UX Design</span></span>
+            <span><i class="fa-solid fa-code"></i><span data-i18n="serviceTwo">Development</span></span>
+            <span><i class="fa-solid fa-rocket"></i><span data-i18n="serviceThree">Brand Identity</span></span>
+          </div>
+          <a href="#portfolio" class="hero-btn" data-i18n="heroButton">See My Portfolio <i class="fa-solid fa-angle-right"></i></a>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <i class="fa-solid fa-laptop-code"></i>
+              <strong data-i18n="statOneValue">10+</strong>
+              <span data-i18n="statOneLabel">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+              <i class="fa-regular fa-circle-check"></i>
+              <strong data-i18n="statTwoValue">100%</strong>
+              <span data-i18n="statTwoLabel">Satisfaction</span>
+            </div>
+            <div class="stat-item">
+              <i class="fa-solid fa-store"></i>
+              <strong data-i18n="statThreeValue">3</strong>
+              <span data-i18n="statThreeLabel">Web Platforms Built</span>
+            </div>
+            <div class="stat-item">
+              <i class="fa-solid fa-headset"></i>
+              <strong data-i18n="statFourValue">24/7</strong>
+              <span data-i18n="statFourLabel">Support</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-ring"></div>
+          <div class="photo-wrap">
+            <img src="photo1.png" alt="Sadki Yassine">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="photo1.png" alt="Sadki Yassine portrait">
+        </div>
+
+        <div class="about-content">
+          <div class="section-tag" data-i18n="aboutTag">About Me</div>
+          <h2 data-i18n="aboutTitle">Hi there, I’m Sadki Yassine</h2>
+          <h3 data-i18n="aboutSubtitle">Web Designer & Front-End Developer</h3>
+          <p data-i18n="aboutDesc">
+            I’m Sadki Yassine, a passionate web designer and front-end developer focused on creating modern, clean,
+            and user-friendly digital experiences. I enjoy transforming ideas into functional and visually appealing
+            websites, with strong attention to design, usability, responsiveness, and performance.
+          </p>
+
+          <div class="about-skill-row">
+            <span>UI/UX Design</span>
+            <span>Portfolio Websites</span>
+            <span>E-Commerce Mood</span>
+            <span>Brand Identity</span>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-title" data-i18n="contactTitle">Contact Me</div>
+            <a class="contact-line" href="https://wa.me/21651815080" target="_blank">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span data-i18n="whatsappLine">WhatsApp: +216 51 815 080</span>
+            </a>
+            <div class="contact-line">
+              <i class="fa-regular fa-envelope"></i>
+              <span data-i18n="availabilityLine">Available for freelance projects</span>
+            </div>
+            <div class="contact-line">
+              <i class="fa-regular fa-map"></i>
+              <span data-i18n="locationLine">Tunisia / Remote</span>
+            </div>
+            <div class="contact-line">
+              <i class="fa-solid fa-language"></i>
+              <span data-i18n="languagesLine">Languages: English, French, Arabic, Spanish, German</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <div class="portfolio-header">
+        <div class="section-tag" data-i18n="portfolioTag">Portfolio</div>
+        <h2 data-i18n="portfolioTitle">Selected Work</h2>
+        <h3 data-i18n="portfolioSubtitle">A curated selection of fashion and jewelry projects with a more art-directed and premium presentation.</h3>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="project-card featured">
+          <div class="project-shell">
+            <a class="project-preview" href="https://shaymadress.netlify.app/" target="_blank" rel="noopener noreferrer">
+              <div class="project-badge-row">
+                <span class="project-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="projectLive">Live Project</span></span>
+                <span class="project-year">2026</span>
+              </div>
+
+              <div class="browser-mockup">
+                <div class="browser-top">
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                  <span class="browser-dot"></span>
+                </div>
+                <div class="browser-body">
+                  <div class="mock-content">
+                    <span class="mock-label" data-i18n="projectFeaturedLabel">Fashion Landing Page</span>
+                    <h3>Shayma Dress</h3>
+                    <p data-i18n="projectOverlayDesc">Modern fashion landing page with elegant visual identity.</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <div class="project-content">
+              <h3 data-i18n="projectOneTitle">Shayma Dress</h3>
+              <div class="project-subtitle" data-i18n="projectOneSubtitle">A polished brand presentation with a strong editorial mood and premium storytelling.</div>
+              <div class="project-tags">
+                <span>UI/UX</span>
+                <span>Responsive</span>
+                <span>Fashion</span>
+                <span>Brand Feel</span>
+              </div>
+              <p data-i18n="projectCardDesc">A stylish and responsive website created for a dress and fashion brand, focused on elegant presentation, smooth browsing, and a clean shopping-oriented experience.</p>
+
+              <div class="project-footer">
+                <a class="project-link" href="https://shaymadress.netlify.app/" target="_blank" rel="noopener noreferrer">
+                  <span data-i18n="projectVisit">Visit Website</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <span class="project-meta" data-i18n="projectMetaOne">Creative direction, visual hierarchy, responsive polish</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card secondary">
+          <div class="project-shell">
+            <a class="project-preview" href="https://hanasunnyco.sadkiyassine55.workers.dev" target="_blank" rel="noopener noreferrer">
+              <div class="project-badge-row">
+                <span class="project-badge"><i class="fa-solid fa-globe"></i> <span data-i18n="projectNew">New Project</span></span>
+                <span class="project-year">2026</span>
+              </div>
+
+              <div class="mini-preview">
+                <div class="mini-preview-top">
+                  <span class="mini-brand">HanaSunnyCo</span>
+                  <span class="mini-pill"></span>
+                </div>
+                <div class="mini-preview-body">
+                  <div class="mini-stack">
+                    <span class="mini-line long"></span>
+                    <span class="mini-line mid"></span>
+                    <span class="mini-line short"></span>
+                  </div>
+                  <div class="mini-cards">
+                    <div class="mini-card"></div>
+                    <div class="mini-card"></div>
+                    <div class="mini-card"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <div class="project-content">
+              <h3 data-i18n="projectTwoTitle">HanaSunnyCo</h3>
+              <div class="project-subtitle" data-i18n="projectTwoSubtitle">A softer, beach-inspired jewelry showcase with a warmer and more lifestyle-oriented direction.</div>
+              <div class="project-tags">
+                <span>Jewelry</span>
+                <span>Creative Layout</span>
+                <span>Visual Identity</span>
+                <span>E-Commerce Vibe</span>
+              </div>
+              <p data-i18n="projectTwoDesc">A jewelry-focused brand concept with a sunnier atmosphere, elevated product storytelling, and a boutique-style digital presence crafted to feel more creative and memorable.</p>
+
+              <div class="project-footer">
+                <a class="project-link" href="https://hanasunnyco.sadkiyassine55.workers.dev" target="_blank" rel="noopener noreferrer">
+                  <span data-i18n="projectVisitSecond">Visit HanaSunnyCo</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <span class="project-meta" data-i18n="projectMetaTwo">Art direction, product mood, elevated portfolio look</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card secondary spotify-card">
+          <div class="project-shell">
+            <a class="project-preview" href="http://localhost/spotifyhub/product/public/costumer.html" target="_blank" rel="noopener noreferrer">
+              <div class="project-badge-row">
+                <span class="project-badge"><i class="fa-solid fa-headphones-simple"></i> <span data-i18n="projectThirdBadge">Web App</span></span>
+                <span class="project-year">2026</span>
+              </div>
+
+              <div class="mini-preview spotify-preview">
+                <div class="mini-preview-top">
+                  <span class="mini-brand">SpotifyHub</span>
+                  <span class="mini-pill"></span>
+                </div>
+                <div class="mini-preview-body">
+                  <div class="mini-stack">
+                    <span class="mini-line long"></span>
+                    <span class="mini-line mid"></span>
+                    <span class="mini-line short"></span>
+                  </div>
+                  <div class="mini-cards">
+                    <div class="mini-card"></div>
+                    <div class="mini-card"></div>
+                    <div class="mini-card"></div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <div class="project-content">
+              <h3 data-i18n="projectThreeTitle">SpotifyHub</h3>
+              <div class="project-subtitle" data-i18n="projectThreeSubtitle">A Spotify-inspired music platform interface with a smoother app-focused direction.</div>
+              <div class="project-tags">
+                <span>Music UI</span>
+                <span>Web App</span>
+                <span>Frontend</span>
+                <span>Dashboard Feel</span>
+              </div>
+              <p data-i18n="projectThreeDesc">A music streaming concept built with a clean interface, smooth navigation and a more application-oriented user experience designed to feel modern and engaging.</p>
+
+              <div class="project-footer">
+                <a class="project-link" href="http://localhost/spotifyhub/product/public/costumer.html" target="_blank" rel="noopener noreferrer">
+                  <span data-i18n="projectVisitThird">Visit SpotifyHub</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+                <span class="project-meta" data-i18n="projectMetaThree">Music platform UI, cleaner flow, web app presentation</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        navHome: "HOME",
+        navAbout: "ABOUT",
+        navPortfolio: "PORTFOLIO",
+        navContact: "CONTACT",
+        nameFirst: "Sadki",
+        nameLast: "Yassine",
+        heroScript: "I am",
+        heroTitle: "Web<br><span class='hero-accent-line'>Designer</span>",
+        heroDesc: "I create modern and premium websites with strong visual identity, clean UX, and polished details that make brands feel more memorable.",
+        serviceOne: "UI/UX Design",
+        serviceTwo: "Development",
+        serviceThree: "Brand Identity",
+        heroButton: "See My Portfolio <i class='fa-solid fa-angle-right'></i>",
+        statOneValue: "10+",
+        statOneLabel: "Projects Completed",
+        statTwoValue: "100%",
+        statTwoLabel: "Satisfaction",
+        statThreeValue: "3",
+        statThreeLabel: "Web Platforms Built",
+        statFourValue: "24/7",
+        statFourLabel: "Support",
+        aboutTag: "About Me",
+        aboutTitle: "Hi there, I’m Sadki Yassine",
+        aboutSubtitle: "Web Designer & Front-End Developer",
+        aboutDesc: "I’m Sadki Yassine, a passionate web designer and front-end developer focused on creating modern, clean, and user-friendly digital experiences. I enjoy transforming ideas into functional and visually appealing websites, with strong attention to design, usability, responsiveness, and performance.",
+        contactTitle: "Contact Me",
+        whatsappLine: "WhatsApp: +216 51 815 080",
+        availabilityLine: "Available for freelance projects",
+        locationLine: "Tunisia / Remote",
+        languagesLine: "Languages: English, French, Arabic, Spanish, German",
+        portfolioTag: "Portfolio",
+        portfolioTitle: "Selected Work",
+        portfolioSubtitle: "A curated selection of fashion and jewelry projects with a more art-directed and premium presentation.",
+        projectLive: "Live Project",
+        projectOverlayDesc: "Modern fashion landing page with elegant visual identity.",
+        projectFeaturedLabel: "Fashion Landing Page",
+        projectOneTitle: "Shayma Dress",
+        projectOneSubtitle: "A polished brand presentation with a strong editorial mood and premium storytelling.",
+        projectCardDesc: "A stylish and responsive website created for a dress and fashion brand, focused on elegant presentation, smooth browsing, and a clean shopping-oriented experience.",
+        projectVisit: "Visit Website",
+        projectMetaOne: "Creative direction, visual hierarchy, responsive polish",
+        projectNew: "New Project",
+        projectTwoTitle: "HanaSunnyCo",
+        projectTwoSubtitle: "A softer, beach-inspired jewelry showcase with a warmer and more lifestyle-oriented direction.",
+        projectTwoDesc: "A jewelry-focused brand concept with a sunnier atmosphere, elevated product storytelling, and a boutique-style digital presence crafted to feel more creative and memorable.",
+        projectVisitSecond: "Visit HanaSunnyCo",
+        projectMetaTwo: "Art direction, product mood, elevated portfolio look",
+        projectThirdBadge: "Web App",
+        projectThreeTitle: "SpotifyHub",
+        projectThreeSubtitle: "A Spotify-inspired music platform interface with a smoother app-focused direction.",
+        projectThreeDesc: "A music streaming concept built with a clean interface, smooth navigation and a more application-oriented user experience designed to feel modern and engaging.",
+        projectVisitThird: "Visit SpotifyHub",
+        projectMetaThree: "Music platform UI, cleaner flow, web app presentation"
+      },
+      fr: {
+        navHome: "ACCUEIL",
+        navAbout: "À PROPOS",
+        navPortfolio: "PORTFOLIO",
+        navContact: "CONTACT",
+        nameFirst: "Sadki",
+        nameLast: "Yassine",
+        heroScript: "Je suis",
+        heroTitle: "Web<br><span class='hero-accent-line'>Designer</span>",
+        heroDesc: "Je crée des sites web modernes et premium avec une forte identité visuelle, une UX propre et des détails soignés qui rendent chaque marque plus mémorable.",
+        serviceOne: "UI/UX Design",
+        serviceTwo: "Développement",
+        serviceThree: "Brand Identity",
+        heroButton: "Voir Mon Portfolio <i class='fa-solid fa-angle-right'></i>",
+        statOneValue: "10+",
+        statOneLabel: "Projets Réalisés",
+        statTwoValue: "100%",
+        statTwoLabel: "Satisfaction",
+        statThreeValue: "3",
+        statThreeLabel: "Plateformes Web Créées",
+        statFourValue: "24/7",
+        statFourLabel: "Support",
+        aboutTag: "À Propos",
+        aboutTitle: "Bonjour, je suis Sadki Yassine",
+        aboutSubtitle: "Web Designer & Développeur Front-End",
+        aboutDesc: "I am Sadki Yassine, web designer et développeur front-end passionné, spécialisé dans la création d’expériences digitales modernes, propres et agréables à utiliser. J’aime transformer des idées en sites web professionnels, esthétiques et performants.",
+        contactTitle: "Contactez-Moi",
+        whatsappLine: "WhatsApp : +216 51 815 080",
+        availabilityLine: "Disponible pour des projets freelance",
+        locationLine: "Tunisie / À distance",
+        languagesLine: "Langues : anglais, français, arabe, espagnol, allemand",
+        portfolioTag: "Portfolio",
+        portfolioTitle: "Projets Sélectionnés",
+        portfolioSubtitle: "Une sélection mode et bijoux avec une présentation plus créative, plus premium et mieux dirigée artistiquement.",
+        projectLive: "Projet en ligne",
+        projectOverlayDesc: "Page mode moderne avec une identité visuelle élégante.",
+        projectFeaturedLabel: "Landing Page Mode",
+        projectOneTitle: "Shayma Dress",
+        projectOneSubtitle: "Une présentation de marque soignée avec une ambiance éditoriale et un storytelling premium.",
+        projectCardDesc: "Un site web élégant et responsive créé pour une marque de robes et de mode, avec une présentation raffinée, une navigation fluide et une expérience orientée vitrine.",
+        projectVisit: "Visiter le site",
+        projectMetaOne: "Direction créative, hiérarchie visuelle, finition responsive",
+        projectNew: "Nouveau projet",
+        projectTwoTitle: "HanaSunnyCo",
+        projectTwoSubtitle: "Une vitrine bijoux plus douce, inspirée de la plage, avec une direction plus lifestyle.",
+        projectTwoDesc: "Un concept de marque de bijoux avec une ambiance solaire, une narration produit plus travaillée et une présence digitale boutique pensée pour être plus créative et mémorable.",
+        projectVisitSecond: "Visiter HanaSunnyCo",
+        projectMetaTwo: "Direction artistique, mood produit, portfolio plus premium",
+        projectThirdBadge: "Application Web",
+        projectThreeTitle: "SpotifyHub",
+        projectThreeSubtitle: "Une interface de plateforme musicale inspirée de Spotify avec une direction plus orientée application.",
+        projectThreeDesc: "Un concept de streaming musical conçu avec une interface claire, une navigation fluide et une expérience plus proche d’une application moderne et engageante.",
+        projectVisitThird: "Visiter SpotifyHub",
+        projectMetaThree: "UI plateforme musicale, flow plus propre, présentation web app"
+      },
+      ar: {
+        navHome: "الرئيسية",
+        navAbout: "من أنا",
+        navPortfolio: "الأعمال",
+        navContact: "اتصل بي",
+        nameFirst: "صدقي",
+        nameLast: "ياسين",
+        heroScript: "أنا",
+        heroTitle: "مصمم<br><span class='hero-accent-line'>ويب</span>",
+        heroDesc: "أصمم مواقع حديثة وفاخرة بهوية بصرية قوية وتجربة استخدام نظيفة وتفاصيل مصقولة تجعل العلامة أكثر تميزاً ولا تُنسى.",
+        serviceOne: "تصميم UI/UX",
+        serviceTwo: "تطوير",
+        serviceThree: "هوية بصرية",
+        heroButton: "شاهد أعمالي <i class='fa-solid fa-angle-left'></i>",
+        statOneValue: "+10",
+        statOneLabel: "مشاريع مكتملة",
+        statTwoValue: "100%",
+        statTwoLabel: "رضا العملاء",
+        statThreeValue: "3",
+        statThreeLabel: "منصات ويب تم بناؤها",
+        statFourValue: "24/7",
+        statFourLabel: "دعم",
+        aboutTag: "من أنا",
+        aboutTitle: "مرحباً، أنا صدقي ياسين",
+        aboutSubtitle: "مصمم مواقع ومطور واجهات أمامية",
+        aboutDesc: "أنا صدقي ياسين، مصمم مواقع ومطور واجهات أمامية شغوف بإنشاء تجارب رقمية حديثة ونظيفة وسهلة الاستخدام. أستمتع بتحويل الأفكار إلى مواقع احترافية جذابة بصرياً وفعالة تقنياً.",
+        contactTitle: "تواصل معي",
+        whatsappLine: "واتساب: +216 51 815 080",
+        availabilityLine: "متاح لمشاريع العمل الحر",
+        locationLine: "تونس / عن بُعد",
+        languagesLine: "اللغات: الإنجليزية، الفرنسية، العربية، الإسبانية، الألمانية",
+        portfolioTag: "الأعمال",
+        portfolioTitle: "أعمال مختارة",
+        portfolioSubtitle: "مجموعة مختارة من مشاريع الأزياء والمجوهرات بأسلوب أكثر إبداعاً وتوجيهاً فنياً ومظهراً أكثر فخامة.",
+        projectLive: "مشروع مباشر",
+        projectOverlayDesc: "صفحة أزياء عصرية بهوية بصرية أنيقة.",
+        projectFeaturedLabel: "واجهة أزياء",
+        projectOneTitle: "Shayma Dress",
+        projectOneSubtitle: "عرض علامة متقن بطابع تحريري قوي وسرد بصري فاخر.",
+        projectCardDesc: "موقع أنيق ومتجاوب تم إنشاؤه لعلامة فساتين وأزياء، مع عرض بصري راقٍ وتصفح سلس وتجربة احترافية.",
+        projectVisit: "زيارة الموقع",
+        projectMetaOne: "إخراج إبداعي، تسلسل بصري، تحسين متجاوب",
+        projectNew: "مشروع جديد",
+        projectTwoTitle: "HanaSunnyCo",
+        projectTwoSubtitle: "عرض مجوهرات أكثر نعومة مستوحى من الشاطئ وبهوية أكثر دفئاً وأسلوب حياة.",
+        projectTwoDesc: "تصور لعلامة مجوهرات بأجواء مشمسة وسرد منتج أكثر تميزاً وحضور رقمي أقرب إلى البوتيك ليبدو أكثر إبداعاً ولا يُنسى.",
+        projectVisitSecond: "زيارة HanaSunnyCo",
+        projectMetaTwo: "توجيه فني، أجواء المنتج، بورتفوليو أفخم",
+        projectThirdBadge: "تطبيق ويب",
+        projectThreeTitle: "SpotifyHub",
+        projectThreeSubtitle: "واجهة منصة موسيقية مستوحاة من Spotify باتجاه أقرب لتجربة التطبيقات.",
+        projectThreeDesc: "تصور لمنصة بث موسيقي بواجهة نظيفة وتنقل سلس وتجربة استخدام أقرب إلى التطبيقات الحديثة والجذابة.",
+        projectVisitThird: "زيارة SpotifyHub",
+        projectMetaThree: "واجهة منصة موسيقية، تدفق أنظف، عرض ويب آب"
+      },
+      es: {
+        navHome: "INICIO",
+        navAbout: "SOBRE MÍ",
+        navPortfolio: "PORTAFOLIO",
+        navContact: "CONTACTO",
+        nameFirst: "Sadki",
+        nameLast: "Yassine",
+        heroScript: "Soy",
+        heroTitle: "Web<br><span class='hero-accent-line'>Designer</span>",
+        heroDesc: "Creo sitios web modernos y premium con una identidad visual fuerte, una UX limpia y detalles pulidos que hacen que cada marca sea más memorable.",
+        serviceOne: "Diseño UI/UX",
+        serviceTwo: "Desarrollo",
+        serviceThree: "Brand Identity",
+        heroButton: "Ver Mi Portafolio <i class='fa-solid fa-angle-right'></i>",
+        statOneValue: "10+",
+        statOneLabel: "Proyectos Realizados",
+        statTwoValue: "100%",
+        statTwoLabel: "Satisfacción",
+        statThreeValue: "3",
+        statThreeLabel: "Plataformas Web Creadas",
+        statFourValue: "24/7",
+        statFourLabel: "Soporte",
+        aboutTag: "Sobre Mí",
+        aboutTitle: "Hola, soy Sadki Yassine",
+        aboutSubtitle: "Diseñador Web y Desarrollador Front-End",
+        aboutDesc: "Soy Sadki Yassine, diseñador web y desarrollador front-end apasionado por crear experiencias digitales modernas, limpias y fáciles de usar. Me gusta convertir ideas en sitios web profesionales, atractivos y de alto rendimiento.",
+        contactTitle: "Contáctame",
+        whatsappLine: "WhatsApp: +216 51 815 080",
+        availabilityLine: "Disponible para proyectos freelance",
+        locationLine: "Túnez / Remoto",
+        languagesLine: "Idiomas: inglés, francés, árabe, español, alemán",
+        portfolioTag: "Portafolio",
+        portfolioTitle: "Trabajos Seleccionados",
+        portfolioSubtitle: "Una selección curada de proyectos de moda y joyería con una presentación más creativa y premium.",
+        projectLive: "Proyecto en vivo",
+        projectOverlayDesc: "Landing page de moda moderna con identidad visual elegante.",
+        projectFeaturedLabel: "Landing de Moda",
+        projectOneTitle: "Shayma Dress",
+        projectOneSubtitle: "Una presentación de marca pulida con un mood editorial y storytelling premium.",
+        projectCardDesc: "Un sitio web elegante y responsive creado para una marca de vestidos y moda, centrado en una presentación refinada, navegación fluida y una experiencia visual limpia.",
+        projectVisit: "Visitar sitio",
+        projectMetaOne: "Dirección creativa, jerarquía visual, pulido responsive",
+        projectNew: "Nuevo proyecto",
+        projectTwoTitle: "HanaSunnyCo",
+        projectTwoSubtitle: "Una vitrina de joyería más suave e inspirada en la playa con una dirección más lifestyle.",
+        projectTwoDesc: "Un concepto de marca de joyería con una atmósfera más soleada, mejor narrativa de producto y una presencia digital tipo boutique pensada para ser más creativa y memorable.",
+        projectVisitSecond: "Visitar HanaSunnyCo",
+        projectMetaTwo: "Dirección artística, mood del producto, portfolio más premium",
+        projectThirdBadge: "Web App",
+        projectThreeTitle: "SpotifyHub",
+        projectThreeSubtitle: "Una interfaz de plataforma musical inspirada en Spotify con una dirección más enfocada en aplicación.",
+        projectThreeDesc: "Un concepto de streaming musical construido con una interfaz limpia, navegación fluida y una experiencia más orientada a aplicación, moderna y atractiva.",
+        projectVisitThird: "Visitar SpotifyHub",
+        projectMetaThree: "UI de música, flujo más limpio, presentación web app"
+      },
+      de: {
+        navHome: "START",
+        navAbout: "ÜBER MICH",
+        navPortfolio: "PORTFOLIO",
+        navContact: "KONTAKT",
+        nameFirst: "Sadki",
+        nameLast: "Yassine",
+        heroScript: "Ich bin",
+        heroTitle: "Web<br><span class='hero-accent-line'>Designer</span>",
+        heroDesc: "Ich gestalte moderne Premium-Websites mit starker visueller Identität, sauberer UX und feinen Details, die Marken einprägsamer machen.",
+        serviceOne: "UI/UX Design",
+        serviceTwo: "Entwicklung",
+        serviceThree: "Brand Identity",
+        heroButton: "Mein Portfolio ansehen <i class='fa-solid fa-angle-right'></i>",
+        statOneValue: "10+",
+        statOneLabel: "Abgeschlossene Projekte",
+        statTwoValue: "100%",
+        statTwoLabel: "Zufriedenheit",
+        statThreeValue: "3",
+        statThreeLabel: "Erstellte Webplattformen",
+        statFourValue: "24/7",
+        statFourLabel: "Support",
+        aboutTag: "Über Mich",
+        aboutTitle: "Hallo, ich bin Sadki Yassine",
+        aboutSubtitle: "Webdesigner & Front-End-Entwickler",
+        aboutDesc: "Ich bin Sadki Yassine, ein leidenschaftlicher Webdesigner und Front-End-Entwickler mit Fokus auf moderne, saubere und benutzerfreundliche digitale Erlebnisse. Ich verwandle Ideen gerne in professionelle, visuell ansprechende und leistungsstarke Websites.",
+        contactTitle: "Kontakt",
+        whatsappLine: "WhatsApp: +216 51 815 080",
+        availabilityLine: "Verfügbar für Freelance-Projekte",
+        locationLine: "Tunesien / Remote",
+        languagesLine: "Sprachen: Englisch, Französisch, Arabisch, Spanisch, Deutsch",
+        portfolioTag: "Portfolio",
+        portfolioTitle: "Ausgewählte Arbeiten",
+        portfolioSubtitle: "Eine kuratierte Auswahl an Mode- und Schmuckprojekten mit kreativerer und hochwertigerer Präsentation.",
+        projectLive: "Live-Projekt",
+        projectOverlayDesc: "Moderne Fashion-Landingpage mit eleganter visueller Identität.",
+        projectFeaturedLabel: "Fashion Landingpage",
+        projectOneTitle: "Shayma Dress",
+        projectOneSubtitle: "Ein ausgearbeiteter Markenauftritt mit starkem Editorial-Mood und hochwertigem Storytelling.",
+        projectCardDesc: "Eine stilvolle und responsive Website für eine Kleider- und Modemarke, mit elegantem Auftritt, flüssiger Navigation und sauberem Nutzererlebnis.",
+        projectVisit: "Website besuchen",
+        projectMetaOne: "Creative Direction, visuelle Hierarchie, Responsive-Polish",
+        projectNew: "Neues Projekt",
+        projectTwoTitle: "HanaSunnyCo",
+        projectTwoSubtitle: "Eine weichere, strandinspirierte Schmuckpräsentation mit wärmerer Lifestyle-Richtung.",
+        projectTwoDesc: "Ein Schmuckmarken-Konzept mit sonniger Atmosphäre, stärkerem Produkt-Storytelling und einer Boutique-artigen digitalen Präsenz, die kreativer und einprägsamer wirkt.",
+        projectVisitSecond: "HanaSunnyCo besuchen",
+        projectMetaTwo: "Art Direction, Produktstimmung, hochwertigeres Portfolio",
+        projectThirdBadge: "Web-App",
+        projectThreeTitle: "SpotifyHub",
+        projectThreeSubtitle: "Eine von Spotify inspirierte Musikplattform mit stärkerem App-Charakter.",
+        projectThreeDesc: "Ein Musik-Streaming-Konzept mit sauberer Oberfläche, flüssiger Navigation und einer moderneren, app-orientierten Nutzererfahrung.",
+        projectVisitThird: "SpotifyHub ansehen",
+        projectMetaThree: "Musikplattform-UI, klarerer Flow, Web-App-Präsentation"
+      }
+    };
+
+    const switcher = document.getElementById('languageSwitcher');
+    const htmlEl = document.documentElement;
+    const body = document.body;
+
+    function applyLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      const isArabic = lang === 'ar';
+      htmlEl.lang = lang;
+      htmlEl.dir = isArabic ? 'rtl' : 'ltr';
+      body.classList.toggle('rtl', isArabic);
+      localStorage.setItem('portfolioLanguage', lang);
+    }
+
+    const savedLanguage = localStorage.getItem('portfolioLanguage') || 'en';
+    switcher.value = savedLanguage;
+    applyLanguage(savedLanguage);
+
+    switcher.addEventListener('change', (e) => {
+      applyLanguage(e.target.value);
+    });
+  </script>
+
+</body>
+</html>
